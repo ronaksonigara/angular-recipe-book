@@ -40,6 +40,14 @@ export class RecipeService {
     return [...this.recipes];
   }
 
+  getRecipe(index: number) {
+    return { ...this.recipes[index] };
+  }
+
+  getRecipeTotalLength() {
+    return this.recipes.length;
+  }
+
   addIngredientsToShoppingList(ingredients: Ingredient[]) {
     this.shoppingListService.addIngredients(ingredients);
   }
