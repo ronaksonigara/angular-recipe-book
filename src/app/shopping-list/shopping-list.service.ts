@@ -2,9 +2,7 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { Ingredient } from '../shared/ingredients.model';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class ShoppingListService {
   private ingredients: Ingredient[] = [
     new Ingredient('Apples', 5),
