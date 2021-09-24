@@ -15,8 +15,14 @@ export class ShoppingListService {
 
   ingredientsCanged = new Subject<Ingredient[]>();
 
+  startedEditing = new Subject<number>();
+
   getIngredients() {
     return [...this.ingredients];
+  }
+
+  getIngredient(index: number) {
+    return { ...this.ingredients[index] };
   }
 
   addIngredient(ingredient: Ingredient) {
@@ -26,6 +32,15 @@ export class ShoppingListService {
 
   addIngredients(ingredients: Ingredient[]) {
     this.ingredients.push(...ingredients);
+    this.ingredientsCanged.next([...this.ingredients]);
+  }
+  updateIngredient(ingredient: Ingredient, index: number) {
+    this.ingredients.splice(index, 1, ingredient);
+    this.ingredientsCanged.next([...this.ingredients]);
+  }
+
+  deleteIngredient(index: number) {
+    this.ingredients.splice(index, 1);
     this.ingredientsCanged.next([...this.ingredients]);
   }
 }
