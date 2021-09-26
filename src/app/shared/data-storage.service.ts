@@ -5,7 +5,9 @@ import { map, tap } from 'rxjs/operators';
 import { RecipeService } from './../recipes/recipe.service';
 import { Recipe } from './../recipes/recipe.model';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class DataStorageService {
   private static readonly url =
     'https://angular-recipe-book-3ffb3-default-rtdb.asia-southeast1.firebasedatabase.app/recipes.json';
@@ -14,7 +16,6 @@ export class DataStorageService {
 
   storeRecipes() {
     const recipes: Recipe[] = this.recipeService.getRecipes();
-    console.log(recipes);
     this.http.put(DataStorageService.url, recipes).subscribe((response) => {
       console.log(response);
     });
@@ -26,7 +27,7 @@ export class DataStorageService {
         if (!recipes) {
           return [];
         }
-        return recipes.map((recipe) => {
+        return recipes.map((recipe: Recipe) => {
           if (!recipe?.ingredients) {
             return { ...recipe, ingredients: [] };
           }
