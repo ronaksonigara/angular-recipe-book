@@ -1,3 +1,17 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 1;
+}
+.spinner {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
 .lds-ring {
   display: inline-block;
   position: relative;
@@ -10,10 +24,10 @@
     width: 64px;
     height: 64px;
     margin: 8px;
-    border: 8px solid #2102cf;
+    border: 8px solid #fff;
     border-radius: 50%;
     animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-    border-color: #2102cf transparent transparent transparent;
+    border-color: #fff transparent transparent transparent;
     &:nth-child(1) {
       animation-delay: -0.45s;
     }
