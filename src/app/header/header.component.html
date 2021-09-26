@@ -1,21 +1,21 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a [routerLink]="isAuthenticated ? [''] : ['/auth']" class="navbar-brand">
+      <a routerLink="isAuthenticated ? '' : '/auth'" class="navbar-brand">
         Recipe Book
       </a>
     </div>
 
-    <div class="collapse navbar-collapse">
+    <div>
       <ul class="nav navbar-nav">
         <li routerLinkActive="active" *ngIf="isAuthenticated">
-          <a [routerLink]="['/recipes']">Recipes</a>
+          <a routerLink="/recipes">Recipes</a>
         </li>
         <li routerLinkActive="active" *ngIf="!isAuthenticated">
-          <a [routerLink]="['/auth']" routerLinkActive="active">Authenticate</a>
+          <a routerLink="/auth" routerLinkActive="active">Authenticate</a>
         </li>
         <li routerLinkActive="active">
-          <a [routerLink]="['/shopping-list']" routerLinkActive="active"
+          <a routerLink="/shopping-list" routerLinkActive="active"
             >Shopping List</a
           >
         </li>
